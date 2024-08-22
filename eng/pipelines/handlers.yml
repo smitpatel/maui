@@ -71,8 +71,8 @@ parameters:
         vmImage: $(windowsVmImage)
         artifact: build-windows
       - name: macOS
-        poolName: $(macOSXVmPool)
-        vmImage: $(macOSXVmImage)
+        poolName: Azure Pipelines
+        vmImage: macOS-14
         artifact: build-macos
  
   - name: PackPlatforms
@@ -83,8 +83,8 @@ parameters:
         vmImage: $(windowsVmImage)
         artifact: nuget
       - name: macOS
-        poolName: $(macOSXVmPool)
-        vmImage: $(macOSXVmImage)
+        poolName: Azure Pipelines
+        vmImage: macOS-14
         artifact: nuget-macos
 
   - name: BuilTemplatePlatforms
@@ -95,19 +95,19 @@ parameters:
         vmImage: $(windowsVmImage)
         artifact: build-windows
       - name: macOS
-        poolName: $(macOSXVmPool)
-        vmImage: $(macOSXVmImage)
+        poolName: Azure Pipelines
+        vmImage: macOS-14
         artifact: build-macos
 
   - name: RunTemplatePlatforms
     type: object
     default:
-    - name: $(androidTestsVmPool)
-      vmImage: $(androidTestsVmImage)
+    - name: Azure Pipelines
+      vmImage: macOS-14
       testName: RunOnAndroid
       artifact: templates-run-android
-    - name: $(iosTestsVmPool)
-      vmImage: $(iosTestsVmImage)
+    - name: Azure Pipelines
+      vmImage:  macOS-14
       testName: RunOniOS
       artifact: templates-run-ios
 
